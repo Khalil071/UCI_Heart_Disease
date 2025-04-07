@@ -41,50 +41,29 @@ Hyperparameter tuning was performed using GridSearchCV to optimize the XGBoost m
 The confusion matrix was plotted for model evaluation.
 
 Model Deployment
-The best model was saved as a pickle file (xgb_model.pkl).
+The best model was saved as a pickle file (best_xgb_model.json).
 
-A Flask API was created to serve predictions.
 
-API testing was conducted using Postman.
-
-API Usage (Postman)
-
-Endpoint:
-
-POST /predict
-
-Request Body (JSON):
-
-{ "age": 45, "cp": 2, "thalach": 150, "exang": 1, "oldpeak": 2.3, "sex": 1, "trestbps": 160, "chol": 230, "fbs": 0, "restecg": 1, "slope": 1, "ca": 3, "thal": 1, "dataset": 0 }
-
-Response:
-
-{ "prediction": 3 }
-
-Repository Structure
-
-|-- data/ | |-- UCI_Heart_Disease_Data.csv |-- models/ | |-- best_xgb_model.json |-- src/ | |-- data_preprocessing.py | |-- model_training.py | |-- feature_selection.py | |-- model_api.py |-- README.md |-- requirements.txt
-
-Installation
 
 To run the project locally, install the dependencies:
 
-1. Create a virtual environment
+1. Create a virtual environment:
 python -m venv myenv
 
 2. Activate the virtual environment On Windows:
 myenv\Scripts\activate
 
-3. Install project dependencies
+3. Install project dependencies:
 pip install -r requirements.txt
+#or run# pip show pandas numpy tensorflow scikit-learn matplotlib seaborn flask
 
-4. Load the model
+5. Load the model
 Ensure that the trained model file (best_xgb_model.json) is in the same directory as the Flask application (app.py).
 
-5. Run Flask API and 
+6. Run Flask API:
 python app.py
 
-6. Testing the API
+7. Testing the API
 You can send POST requests to the /predict endpoint to get predictions.
 
 Example request (using Postman):
